@@ -121,7 +121,7 @@ body.embed .page-header {
 
 /* ---- Image column ---- */
 .lab-image {
-  flex: 0 0 360px;
+  flex: 0 0 460px;
   min-height: 240px;
   display: flex;
   align-items: center;
@@ -584,7 +584,7 @@ function renderLab(lab) {
     : '';
 
   const imageContent = lab.photo
-    ? `<img src="${escapeHtml(lab.photo)}" alt="${escapeHtml(lab.labName)}" style="width:100%;height:100%;object-fit:cover;">`
+    ? `<img src="${escapeHtml(lab.photo)}" alt="${escapeHtml(lab.labName)}" style="width:100%;height:100%;object-fit:contain;">`
     : placeholderSVG();
 
   return `<section class="lab-card">
