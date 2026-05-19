@@ -559,10 +559,14 @@ function renderLab(lab) {
       </div>`
     : '';
 
+  const orcidUrl = lab.orcid
+    ? (lab.orcid.startsWith('http') ? lab.orcid : 'https://orcid.org/' + lab.orcid)
+    : '';
+  const orcidDisplay = lab.orcid ? lab.orcid.replace('https://orcid.org/', '') : '';
   const orcidRow = lab.orcid
     ? `<div class="contact-item">
         ${icon('orcid')}<span class="contact-label">ORCID</span>
-        <span class="contact-value"><a href="${escapeHtml(lab.orcid)}" target="_blank" rel="noopener">${escapeHtml(lab.orcid.replace('https://orcid.org/', ''))}</a></span>
+        <span class="contact-value"><a href="${escapeHtml(orcidUrl)}" target="_blank" rel="noopener">${escapeHtml(orcidDisplay)}</a></span>
       </div>`
     : '';
 
