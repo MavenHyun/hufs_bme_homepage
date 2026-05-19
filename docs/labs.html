@@ -105,6 +105,7 @@ body.embed .page-header {
   overflow: hidden;
   margin-bottom: 20px;
   display: flex;
+  flex-direction: column;
   transition: box-shadow 0.2s;
 }
 
@@ -116,15 +117,14 @@ body.embed .page-header {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* ---- Image column ---- */
+/* ---- Image area (top) ---- */
 .lab-image {
-  flex: 0 0 460px;
-  min-height: 240px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--row-hover);
-  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .lab-image svg {
@@ -270,17 +270,6 @@ body.embed .page-footer {
 @media (max-width: 768px) {
   .page-header {
     padding: 20px 16px;
-  }
-
-  .lab-card {
-    flex-direction: column;
-  }
-
-  .lab-image {
-    flex: none;
-    min-height: 200px;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
   }
 
   .lab-info {
