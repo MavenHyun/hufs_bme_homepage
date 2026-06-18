@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HUFS 바이오메디컬공학부 연구 장비 소개</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CSS VARIABLES & RESET
+   ============================================================ */
+:root {
+  --hufs-green: #146E7A;
+  --hufs-navy: #002D56;
+  --hufs-gold: #8D7150;
+  --hufs-gray: #DADAD3;
+  --hufs-silver: #9D9FA2;
+  --bg: #F5F5F2;
+  --card-bg: #FFFFFF;
+  --text-primary: #1A1A1A;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+  --border: #E0E0DC;
+  --row-hover: #F8F8F6;
+}
+
+[data-theme="dark"] {
+  --bg: #121820;
+  --card-bg: #1A2332;
+  --text-primary: #E8E8E4;
+  --text-secondary: #A8A8A4;
+  --text-muted: #707070;
+  --border: #2A3444;
+  --row-hover: #1E2A3A;
+  --hufs-gray: #3A3A44;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.embed {
+  background: transparent;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.page-header {
+  background: var(--hufs-navy);
+  color: #FFFFFF;
+  padding: 28px 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+body.embed .page-header {
+  position: relative;
+}
+
+.header-inner {
+  /* no max-width — stretches with viewport, matching card width */
+}
+
+.header-title h1 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.header-title .subtitle {
+  font-size: 12px;
+  font-weight: 300;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   MAIN LAYOUT
+   ============================================================ */
+.main-content {
+  padding: 24px 32px 48px;
+}
+
+/* ============================================================
+   EQUIPMENT CARD
+   ============================================================ */
+.equip-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  display: flex;
+  transition: box-shadow 0.2s;
+}
+
+.equip-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .equip-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ---- Image column ---- */
+.equip-image {
+  flex: 0 0 460px;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--row-hover);
+  border-right: 1px solid var(--border);
+}
+
+.equip-image svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Info column ---- */
+.equip-info {
+  flex: 1;
+  padding: 24px 28px;
+  min-width: 0;
+}
+
+.equip-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--hufs-navy);
+  margin-bottom: 2px;
+}
+
+[data-theme="dark"] .equip-name {
+  color: #8BC4E8;
+}
+
+.equip-name-en {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.lab-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(20, 110, 122, 0.08);
+  border: 1px solid rgba(20, 110, 122, 0.18);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--hufs-green);
+  margin-bottom: 14px;
+}
+
+[data-theme="dark"] .lab-badge {
+  background: rgba(20, 110, 122, 0.15);
+  border-color: rgba(20, 110, 122, 0.3);
+  color: #3ABBC8;
+}
+
+.lab-badge .pi-name {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.equip-description {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+/* ---- Specs grid ---- */
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+  margin-bottom: 16px;
+}
+
+.spec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 12.5px;
+}
+
+.spec-label {
+  flex-shrink: 0;
+  min-width: 80px;
+  font-weight: 600;
+  color: var(--hufs-silver);
+  letter-spacing: 0.2px;
+}
+
+.spec-value {
+  color: var(--text-primary);
+}
+
+/* ---- Uses list ---- */
+.uses-section {
+  margin-bottom: 14px;
+}
+
+.uses-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--hufs-silver);
+  letter-spacing: 0.3px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.uses-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.uses-list li {
+  font-size: 12px;
+  background: rgba(20, 110, 122, 0.06);
+  border: 1px solid rgba(20, 110, 122, 0.12);
+  border-radius: 5px;
+  padding: 3px 10px;
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .uses-list li {
+  background: rgba(20, 110, 122, 0.1);
+  border-color: rgba(20, 110, 122, 0.2);
+}
+
+/* ---- Location ---- */
+.location-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.location-row svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.location-row span {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.page-footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.page-footer a {
+  color: var(--hufs-green);
+  text-decoration: none;
+}
+
+body.embed .page-footer {
+  display: none;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .page-header {
+    padding: 20px 16px;
+  }
+
+  .equip-card {
+    flex-direction: column;
+  }
+
+  .equip-image {
+    flex: none;
+    min-height: 200px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .equip-info {
+    padding: 20px;
+  }
+
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title h1 {
+    font-size: 16px;
+  }
+
+  .equip-name {
+    font-size: 16px;
+  }
+
+  .equip-image {
+    min-height: 160px;
+  }
+
+  .equip-info {
+    padding: 16px;
+  }
+
+  .equip-description {
+    font-size: 13px;
+  }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  .page-header {
+    position: relative;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .equip-card {
+    break-inside: avoid;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="page-header" id="page-header">
+  <div class="header-inner">
+    <div class="header-title">
+      <h1>바이오메디컬공학부 연구 장비 소개</h1>
+      <span class="subtitle">Department of Biomedical Engineering — Research Equipment</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main class="main-content" id="main-content"></main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="page-footer">
+  한국외국어대학교 바이오메디컬공학부 &middot;
+  <a href="https://bme.hufs.ac.kr" target="_blank" rel="noopener">bme.hufs.ac.kr</a>
+</footer>
+
+<script>
+// ============================================================
+// EQUIPMENT DATA
+// ============================================================
+const EQUIPMENT = [
+  {
+    name: "ZNBT8 Vector Network Analyzer",
+    nameEn: "ZNBT8 VNA",
+    manufacturer: "Rohde & Schwarz",
+    model: "ZNBT8",
+    lab: "MRF Coil Lab",
+    labPi: "우명균",
+    location: "공학관 108호",
+    photo: "lab_equipment/0. ZNBT Vector Network Analyzer/image.png",
+    description: "ZNBT8 벡터 네트워크 분석기는 다채널 수신 안테나 개발 및 안테나 특성 분석을 위한 핵심 장비입니다. 16포트(최대 24포트 확장 가능) 동시 측정을 지원하며, 9 kHz에서 8.5 GHz까지의 광범위한 주파수 대역에서 140 dB의 높은 다이나믹 레인지를 제공합니다. 뇌, 무릎, 팔, 다리 등 인체 전 부위를 대상으로 한 초고해상도 MRI 미세구조 영상 연구에 활용되며, 채널 간 간섭 측정 및 안테나 어레이 최적화에 필수적인 장비입니다.",
+    specs: [
+      { label: "주파수 범위", value: "9 kHz – 8.5 GHz" },
+      { label: "Dynamic Range", value: "140 dB" },
+      { label: "포트 수", value: "16 포트 (최대 24)" },
+      { label: "Sweep Time", value: "1.7 ms" }
+    ],
+    uses: ["다채널 수신 안테나 개발", "안테나 특성 채널별 분석", "채널 간섭 측정"]
+  }
+];
+
+// ============================================================
+// RENDER
+// ============================================================
+function escapeHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+function placeholderSVG() {
+  return `<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="400" height="260" fill="none"/>
+    <g transform="translate(200,110)">
+      <!-- Wrench -->
+      <path d="M-18,-18 L-10,-10 L-6,-14 L-14,-6 L-18,-18 Z M-10,-10 L10,10 L14,6 L-6,-14 Z" fill="#B0B0A8" opacity="0.5"/>
+      <!-- Gear -->
+      <circle cx="4" cy="4" r="12" fill="none" stroke="#B0B0A8" stroke-width="2.5"/>
+      <circle cx="4" cy="4" r="5" fill="none" stroke="#B0B0A8" stroke-width="2"/>
+      <line x1="4" y1="-10" x2="4" y2="-16" stroke="#B0B0A8" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="4" y1="18" x2="4" y2="24" stroke="#B0B0A8" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="-8" y1="4" x2="-14" y2="4" stroke="#B0B0A8" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="16" y1="4" x2="22" y2="4" stroke="#B0B0A8" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <text x="200" y="175" text-anchor="middle" font-family="'Noto Sans KR', sans-serif" font-size="13" font-weight="500" fill="#B0B0A8">Equipment Photo</text>
+  </svg>`;
+}
+
+function renderEquipment(eq) {
+  const imageContent = eq.photo
+    ? `<img src="${escapeHtml(eq.photo)}" alt="${escapeHtml(eq.name)}" style="width:100%;height:100%;object-fit:contain;">`
+    : placeholderSVG();
+
+  const specsHTML = eq.specs.map(s =>
+    `<div class="spec-item">
+      <span class="spec-label">${escapeHtml(s.label)}</span>
+      <span class="spec-value">${escapeHtml(s.value)}</span>
+    </div>`
+  ).join('');
+
+  const usesHTML = eq.uses.length
+    ? `<div class="uses-section">
+        <div class="uses-title">주요 용도</div>
+        <ul class="uses-list">${eq.uses.map(u => `<li>${escapeHtml(u)}</li>`).join('')}</ul>
+      </div>`
+    : '';
+
+  return `<section class="equip-card">
+    <div class="equip-image">
+      ${imageContent}
+    </div>
+    <div class="equip-info">
+      <h2 class="equip-name">${escapeHtml(eq.name)}</h2>
+      <div class="equip-name-en">${escapeHtml(eq.manufacturer)} — ${escapeHtml(eq.model)}</div>
+      <div class="lab-badge">
+        ${escapeHtml(eq.lab)}
+        <span class="pi-name">${escapeHtml(eq.labPi)} 교수</span>
+      </div>
+      <p class="equip-description">${escapeHtml(eq.description)}</p>
+      <div class="specs-grid">
+        ${specsHTML}
+      </div>
+      ${usesHTML}
+      <div class="location-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+        <span>${escapeHtml(eq.location)}</span>
+      </div>
+    </div>
+  </section>`;
+}
+
+function render() {
+  const main = document.getElementById('main-content');
+  main.innerHTML = EQUIPMENT.map(renderEquipment).join('');
+}
+
+// ============================================================
+// QUERY PARAMS: ?embed=true, ?theme=dark
+// ============================================================
+(function init() {
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get('embed') === 'true' || window.parent !== window) {
+    document.body.classList.add('embed');
+  }
+
+  if (params.get('theme') === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>

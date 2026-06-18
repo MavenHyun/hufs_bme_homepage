@@ -130,7 +130,7 @@ body.embed .page-header {
   flex-shrink: 0;
 }
 
-.legend-dot.track-common { background: var(--hufs-green); }
+.legend-dot.track-common { background: #3EB489; }
 .legend-dot.track-system { background: var(--hufs-gold); }
 .legend-dot.track-data   { background: var(--hufs-data-blue); }
 
@@ -241,12 +241,12 @@ body.embed .page-header {
 
 /* Track background colors */
 .course-row.track-common {
-  background: #E1F0F2;
+  background: #E0F5EC;
 }
-.course-row.track-common .course-name-kr { color: #0C4A52; }
-.course-row.track-common .course-name-en { color: #3A7A82; }
-.course-row.track-common .td-credits { color: #0C4A52; }
-.course-row.track-common .td-professor { color: #4A8A90; }
+.course-row.track-common .course-name-kr { color: #1A6B4A; }
+.course-row.track-common .course-name-en { color: #3A8A62; }
+.course-row.track-common .td-credits { color: #1A6B4A; }
+.course-row.track-common .td-professor { color: #4A9A6A; }
 
 .course-row.track-system {
   background: #F0E8DE;
@@ -266,12 +266,12 @@ body.embed .page-header {
 
 /* Dark mode track backgrounds */
 [data-theme="dark"] .course-row.track-common {
-  background: #0E2E34;
+  background: #0E2E1E;
 }
-[data-theme="dark"] .course-row.track-common .course-name-kr { color: #8ECDD4; }
-[data-theme="dark"] .course-row.track-common .course-name-en { color: #5A9DA4; }
-[data-theme="dark"] .course-row.track-common .td-credits { color: #8ECDD4; }
-[data-theme="dark"] .course-row.track-common .td-professor { color: #5A9DA4; }
+[data-theme="dark"] .course-row.track-common .course-name-kr { color: #8ED4B0; }
+[data-theme="dark"] .course-row.track-common .course-name-en { color: #5AA47A; }
+[data-theme="dark"] .course-row.track-common .td-credits { color: #8ED4B0; }
+[data-theme="dark"] .course-row.track-common .td-professor { color: #5AA47A; }
 
 [data-theme="dark"] .course-row.track-system {
   background: #2A2218;
@@ -306,7 +306,7 @@ body.embed .page-header {
   border-radius: 0 2px 2px 0;
 }
 
-.course-row.track-common td:first-child::before { background: var(--hufs-green); }
+.course-row.track-common td:first-child::before { background: #3EB489; }
 .course-row.track-system td:first-child::before { background: var(--hufs-gold); }
 .course-row.track-data   td:first-child::before { background: var(--hufs-data-blue); }
 
@@ -715,7 +715,7 @@ const COURSES = [
   { name:"의생명정보학", nameEn:"Bioinformatics", credits:3, year:3, semester:2, track:"데이터", classification:"BME전공특화", category:"전공", hasLab:false, majorRequired:false, professor:"고윤희 교수님", recPrereqs:[], reqPrereqs:["생명정보학을 위한 데이터마이닝"] },
   { name:"바이오메디컬 회로 설계 및 실험", nameEn:"Biomedical circuit design and experiments", credits:3, year:3, semester:2, track:"시스템", classification:"BME전공특화", category:"전공", hasLab:true, majorRequired:false, professor:"강교원 교수님", recPrereqs:["의용반도체 공정 및 실습"], reqPrereqs:[] },
   // ---- Year 4, Semester 1 ----
-  { name:"BME 캡스톤디자인실습", nameEn:"Lab for BME Capstone Design", credits:3, year:4, semester:1, track:"공통", classification:"BME전공완성", category:"전공", hasLab:true, majorRequired:false, professor:"학부장 교수님", recPrereqs:["BME 캡스톤기초"], reqPrereqs:[] },
+  { name:"BME 캡스톤디자인실습", nameEn:"Lab for BME Capstone Design", credits:3, year:4, semester:1, track:"공통", classification:"BME전공완성", category:"전공", hasLab:true, majorRequired:true, professor:"학부장 교수님", recPrereqs:["BME 캡스톤기초"], reqPrereqs:[] },
   { name:"안테나공학이론", nameEn:"Antenna Engineering Theory", credits:3, year:4, semester:1, track:"시스템", classification:"BME전공특화", category:"전공", hasLab:false, majorRequired:false, professor:"우명균 교수님", recPrereqs:[], reqPrereqs:["RF 및 Wireless 시스템"] },
   { name:"고급의료영상처리 및 실습", nameEn:"Advanced Medical Image Processing & Laboratory", credits:3, year:4, semester:1, track:"시스템", classification:"BME전공특화", category:"전공", hasLab:true, majorRequired:false, professor:"남윤호 교수님", recPrereqs:["바이오메디컬 인공지능"], reqPrereqs:["의료영상처리이론 및 실습","BME 신호 및 시스템"] },
   // ---- Year 4, Semester 2 ----
@@ -849,7 +849,7 @@ function initTooltip() {
   function getTrackColor(track) {
     if (track === '시스템') return 'var(--hufs-gold)';
     if (track === '데이터') return 'var(--hufs-data-blue)';
-    return 'var(--hufs-green)';
+    return '#3EB489';
   }
 
   function showTip(row, course) {
@@ -888,7 +888,7 @@ function initTooltip() {
         <div class="tip-field"><span class="tip-label">분류</span><span class="tip-value">${course.classification}</span></div>
         <div class="tip-field"><span class="tip-label">영역</span><span class="tip-value">${course.category}</span></div>
         ${course.professor ? '<div class="tip-field"><span class="tip-label">교수</span><span class="tip-value">' + escapeHtml(course.professor) + '</span></div>' : ''}
-        ${course.hasLab ? '<div class="tip-field"><span class="tip-label">실습</span><span class="tip-value" style="color:#2dd4bf">포함</span></div>' : ''}
+        ${course.hasLab ? '<div class="tip-field"><span class="tip-label">실습</span><span class="tip-value" style="color:#3EB489">포함</span></div>' : ''}
         ${course.majorRequired ? '<div class="tip-field"><span class="tip-label">전공필수</span><span class="tip-value" style="color:#f87171">필수</span></div>' : ''}
       </div>
       ${prereqsHTML}`;

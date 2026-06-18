@@ -90,7 +90,7 @@ body::before {
 .stat-label { color: #64748b; }
 .stat-value { font-weight: 700; font-size: 0.9rem; }
 .stat-value.credits { color: #C49A6C; }
-.stat-value.required { color: #2dd4bf; }
+.stat-value.required { color: #3EB489; }
 .stat-value.data-track { color: #3b82f6; }
 .stat-value.system-track { color: #f59e0b; }
 .stat-progress {
@@ -161,7 +161,7 @@ body::before {
   width: 40px; height: 3px;
   border-radius: 0 0 3px 3px;
 }
-.course-card[data-track="공통"]::before { background: #2dd4bf; }
+.course-card[data-track="공통"]::before { background: #3EB489; }
 .course-card[data-track="데이터"]::before { background: #3b82f6; }
 .course-card[data-track="시스템"]::before { background: #f59e0b; }
 
@@ -229,12 +229,12 @@ body::before {
   box-shadow: 0 2px 10px rgba(0,0,0,0.25);
   transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
-.card-icon-fallback[data-track="공통"] { background: rgba(45,212,191,0.12); color: #2dd4bf; }
+.card-icon-fallback[data-track="공통"] { background: rgba(62,180,137,0.12); color: #3EB489; }
 .card-icon-fallback[data-track="데이터"] { background: rgba(59,130,246,0.12); color: #3b82f6; }
 .card-icon-fallback[data-track="시스템"] { background: rgba(245,158,11,0.12); color: #f59e0b; }
 
 /* Track-colored icon borders */
-.course-card[data-track="공통"] .card-icon { border-color: rgba(45,212,191,0.35); }
+.course-card[data-track="공통"] .card-icon { border-color: rgba(62,180,137,0.35); }
 .course-card[data-track="데이터"] .card-icon { border-color: rgba(59,130,246,0.35); }
 .course-card[data-track="시스템"] .card-icon { border-color: rgba(245,158,11,0.35); }
 .course-card:hover .card-icon,
@@ -271,7 +271,7 @@ body::before {
   background: rgba(255,255,255,0.08); color: #94a3b8;
 }
 .badge-lab {
-  background: rgba(45,212,191,0.12); color: #2dd4bf;
+  background: rgba(62,180,137,0.12); color: #3EB489;
 }
 .badge-required {
   background: rgba(239,68,68,0.12); color: #f87171;
@@ -678,7 +678,7 @@ body::before {
 <div class="main-container" id="main-container">
   <!-- Legend -->
   <div class="legend">
-    <div class="legend-item"><div class="legend-color" style="background:#2dd4bf"></div>공통</div>
+    <div class="legend-item"><div class="legend-color" style="background:#3EB489"></div>공통</div>
     <div class="legend-item"><div class="legend-color" style="background:#3b82f6"></div>데이터 트랙</div>
     <div class="legend-item"><div class="legend-color" style="background:#f59e0b"></div>시스템 트랙</div>
     <div class="legend-item"><div class="legend-line" style="background:#C49A6C"></div>필수 선수과목</div>
@@ -763,7 +763,7 @@ const COURSES = [
   { name:"의생명정보학", nameEn:"Bioinformatics", credits:3, year:3, semester:2, track:"데이터", classification:"BME전공특화", category:"전공", hasLab:false, majorRequired:false, professor:"고윤희 교수님", recPrereqs:[], reqPrereqs:["생명정보학을 위한 데이터마이닝"] },
   { name:"바이오메디컬 회로 설계 및 실험", nameEn:"Biomedical circuit design and experiments", credits:3, year:3, semester:2, track:"시스템", classification:"BME전공특화", category:"전공", hasLab:true, majorRequired:false, professor:"강교원 교수님", recPrereqs:["의용반도체 공정 및 실습"], reqPrereqs:[] },
   // ---- Year 4, Semester 1 ----
-  { name:"BME 캡스톤디자인실습", nameEn:"Lab for BME Capstone Design", credits:3, year:4, semester:1, track:"공통", classification:"BME전공완성", category:"전공", hasLab:true, majorRequired:false, professor:"학부장 교수님", recPrereqs:["BME 캡스톤기초"], reqPrereqs:[] },
+  { name:"BME 캡스톤디자인실습", nameEn:"Lab for BME Capstone Design", credits:3, year:4, semester:1, track:"공통", classification:"BME전공완성", category:"전공", hasLab:true, majorRequired:true, professor:"학부장 교수님", recPrereqs:["BME 캡스톤기초"], reqPrereqs:[] },
   { name:"안테나공학이론", nameEn:"Antenna Engineering Theory", credits:3, year:4, semester:1, track:"시스템", classification:"BME전공특화", category:"전공", hasLab:false, majorRequired:false, professor:"우명균 교수님", recPrereqs:[], reqPrereqs:["RF 및 Wireless 시스템"] },
   { name:"고급의료영상처리 및 실습", nameEn:"Advanced Medical Image Processing & Laboratory", credits:3, year:4, semester:1, track:"시스템", classification:"BME전공특화", category:"전공", hasLab:true, majorRequired:false, professor:"남윤호 교수님", recPrereqs:["바이오메디컬 인공지능"], reqPrereqs:["의료영상처리이론 및 실습","BME 신호 및 시스템"] },
   // ---- Year 4, Semester 2 ----
@@ -796,7 +796,7 @@ function getIconPath(name) {
 }
 
 function getTrackColor(track) {
-  return { '공통':'#2dd4bf', '데이터':'#3b82f6', '시스템':'#f59e0b' }[track] || '#94a3b8';
+  return { '공통':'#3EB489', '데이터':'#3b82f6', '시스템':'#f59e0b' }[track] || '#94a3b8';
 }
 
 function getCourseState(course) {
@@ -1208,7 +1208,7 @@ function openSidebar(course) {
         <div class="sidebar-meta-label">교수</div>
         <div class="sidebar-meta-value" style="font-size:0.72rem">${course.professor || '-'}</div>
       </div>
-      ${course.hasLab ? '<div class="sidebar-meta-item"><div class="sidebar-meta-label">실습</div><div class="sidebar-meta-value" style="color:#2dd4bf">포함</div></div>' : ''}
+      ${course.hasLab ? '<div class="sidebar-meta-item"><div class="sidebar-meta-label">실습</div><div class="sidebar-meta-value" style="color:#3EB489">포함</div></div>' : ''}
       ${course.majorRequired ? '<div class="sidebar-meta-item"><div class="sidebar-meta-label">전공필수</div><div class="sidebar-meta-value" style="color:#f87171">필수</div></div>' : ''}
     </div>
     ${prereqSection}
