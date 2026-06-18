@@ -433,7 +433,7 @@ function placeholderSVG() {
 
 function renderEquipment(eq) {
   const imageContent = eq.photo
-    ? `<img src="${escapeHtml(eq.photo)}" alt="${escapeHtml(eq.name)}" style="width:100%;height:100%;object-fit:contain;">`
+    ? `<img src="${escapeHtml(eq.photo)}" alt="${escapeHtml(eq.name)}" style="width:100%;height:100%;object-fit:cover;">`
     : placeholderSVG();
 
   const specsHTML = eq.specs.map(s =>
