@@ -105,6 +105,7 @@ body.embed .page-header {
   overflow: hidden;
   margin-bottom: 20px;
   display: flex;
+  flex-direction: column;
   transition: box-shadow 0.2s;
 }
 
@@ -116,15 +117,14 @@ body.embed .page-header {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* ---- Image column ---- */
+/* ---- Image area ---- */
 .equip-image {
-  flex: 0 0 460px;
-  min-height: 240px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--row-hover);
-  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .equip-image svg {
@@ -300,15 +300,8 @@ body.embed .page-footer {
     padding: 20px 16px;
   }
 
-  .equip-card {
-    flex-direction: column;
-  }
-
   .equip-image {
-    flex: none;
-    min-height: 200px;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
+    min-height: auto;
   }
 
   .equip-info {
@@ -433,7 +426,7 @@ function placeholderSVG() {
 
 function renderEquipment(eq) {
   const imageContent = eq.photo
-    ? `<img src="${escapeHtml(eq.photo)}" alt="${escapeHtml(eq.name)}" style="width:100%;height:100%;object-fit:cover;">`
+    ? `<img src="${escapeHtml(eq.photo)}" alt="${escapeHtml(eq.name)}" style="width:100%;display:block;">`
     : placeholderSVG();
 
   const specsHTML = eq.specs.map(s =>
